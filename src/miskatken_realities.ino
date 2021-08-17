@@ -131,7 +131,7 @@ void loop()
     delay(80);
     readAllTouchInputs();
     sendActiveTouches();
-    sendFlexData();
+    // sendFlexData();
 }
 
 void sendFlexData()

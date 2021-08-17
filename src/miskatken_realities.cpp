@@ -2,7 +2,7 @@
 //       THIS IS A GENERATED FILE - DO NOT EDIT       //
 /******************************************************/
 
-#line 1 "/Users/justinegagnepain/Documents/concordia_classes/CART_461_Tangible_Media_Studio/mistaken_realities_latest/src/miskatken_realities.ino"
+#line 1 "c:/Users/etoil/OneDrive/Documents/GitHub/mistaken_realities/src/miskatken_realities.ino"
 #include <Particle.h>
 
 #include <Wire.h>
@@ -23,7 +23,7 @@ void printTouchInputs();
 void mpr121_setup(unsigned char address);
 boolean checkInterrupt(int pin);
 void set_register(int address, unsigned char r, unsigned char v);
-#line 8 "/Users/justinegagnepain/Documents/concordia_classes/CART_461_Tangible_Media_Studio/mistaken_realities_latest/src/miskatken_realities.ino"
+#line 8 "c:/Users/etoil/OneDrive/Documents/GitHub/mistaken_realities/src/miskatken_realities.ino"
 const int irqpin = 7;
 const unsigned char MPR121_address = 0x5A;
 boolean touchStates[12]; //to keep track of the previous touch states
@@ -99,8 +99,6 @@ char argonIPAddress[16];
 IPAddress remoteIP(192, 168, 2, 2);
 /* PORTS FOR INCOMING & OUTGOIN9 DATA */
 unsigned int outPort = 8000;
-int flex1Millis = 0;
-int flex2Millis = 0;
 
 void connectToLAN()
 {
@@ -158,21 +156,14 @@ void loop()
 void sendFlexData()
 {
     flexValue = analogRead(flexPin);
-    int now = millis();
     if (flexValue > 1)
     {
-        Serial.print("grass");
-        Serial.println(flexValue);
         sendOSCData(flexValue, "/grass");
-        flex1Millis = now;
     }
     flexValue2 = analogRead(flexPin2);
     if (flexValue2 > 1)
     {
-        Serial.print("branch");
-        Serial.println(flexValue2);
         sendOSCData(flexValue2, "/branch");
-        flex2Millis = now;
     }
 }
 
