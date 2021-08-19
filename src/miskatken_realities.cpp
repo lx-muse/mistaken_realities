@@ -96,7 +96,7 @@ char argonIPAddress[16];
 /* EXPLICIT REMOTE ADDRESS DECLARATION IF IS KNOWN - 
  * REMOTE ADDRESS CAN ALSO BE RETRIEVED FROM RECEIVED 
  * OSC/UDP PACKET  */
-IPAddress remoteIP(192, 168, 2, 2);
+IPAddress remoteIP(10, 10, 60, 91);
 /* PORTS FOR INCOMING & OUTGOIN9 DATA */
 unsigned int outPort = 8000;
 
@@ -150,7 +150,7 @@ void loop()
     delay(80);
     readAllTouchInputs();
     sendActiveTouches();
-    sendFlexData();
+    // sendFlexData();
 }
 
 void sendFlexData()
